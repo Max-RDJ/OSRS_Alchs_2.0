@@ -5,10 +5,17 @@ async function fetchItemData()
                 const container = document.getElementById("items-container");
                 container.innerHTML = "";
                 items.forEach(item => {
-                    const itemDiv = document.createElement("div");
-                    itemDiv.className = "item";
-                    itemDiv.innerHTML = `<strong>${item.itemName}:</strong>${item.price}`;
-                    container.appendChild(itemDiv);
+                    const newRow = document.createElement("tr");
+                    const itemNameDiv = document.createElement("td");
+                    const itemPriceDiv = document.createElement("td")
+                    itemNameDiv.className = "itemName";
+                    itemNameDiv.innerHTML = `<strong>${item.itemName}:</strong>`
+                    itemPriceDiv.className = "itemPrice";
+                    itemPriceDiv.innerHTML = `${item.price}`;
+                    container.appendChild(newRow);
+                    newRow.appendChild(itemNameDiv);
+                    newRow.appendChild(itemPriceDiv);
+                    
                 })
                 // itemOutput.innerText = prices.join('\n')
             } 
